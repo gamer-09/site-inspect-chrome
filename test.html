@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Site Inspector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-images {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .test-image {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        img {
+            max-width: 150px;
+            height: auto;
+        }
+        .links-section a {
+            display: block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Site Inspector Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Page Information</h2>
+        <p>This page tests various elements that the Site Inspector extension should detect:</p>
+        <ul>
+            <li>Meta tags and page structure</li>
+            <li>Images (including CORS-blocked images)</li>
+            <li>Links and navigation</li>
+            <li>Scripts and stylesheets</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Images</h2>
+        <div class="test-images">
+            <div class="test-image">
+                <h3>Local Image</h3>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%234CAF50'/><text x='50' y='50' font-family='Arial' font-size='12' text-anchor='middle' fill='white'>Local SVG</text></svg>" alt="Local SVG Image">
+                <p>Should load fine</p>
+            </div>
+            
+            <div class="test-image">
+                <h3>External Image (CORS)</h3>
+                <img src="https://assets.ppy.sh/user-cover-presets/3/32ddb3eb261e38a82067f9ef4ea96c12f6abf8bd228e6413330f9d351420301b.jpeg" alt="CORS Blocked Image">
+                <p>May be blocked by CORS</p>
+            </div>
+            
+            <div class="test-image">
+                <h3>Public Image</h3>
+                <img src="https://picsum.photos/100/100" alt="Public Image">
+                <p>Should load fine</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section links-section">
+        <h2>Test Links</h2>
+        <a href="https://example.com" target="_blank">External Link 1</a>
+        <a href="https://github.com" target="_blank">External Link 2</a>
+        <a href="#section1" title="Internal link">Internal Link</a>
+        <a href="mailto:test@example.com">Email Link</a>
+    </div>
+
+    <div class="test-section" id="section1">
+        <h2>Performance & SEO</h2>
+        <meta name="description" content="Test page for Site Inspector extension">
+        <meta name="keywords" content="site inspector, test, extension, chrome">
+        <meta name="author" content="Test Author">
+        <meta property="og:title" content="Site Inspector Test Page">
+        <meta property="og:description" content="Testing the Site Inspector Chrome extension">
+        
+        <p>This section contains various meta tags and content for SEO testing.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Resources</h2>
+        <p>This page includes:</p>
+        <ul>
+            <li>Inline styles</li>
+            <li>Meta tags for SEO</li>
+            <li>Various image sources</li>
+            <li>Different link types</li>
+        </ul>
+    </div>
+
+    <script>
+        // Add some dynamic content for testing
+        console.log('Test page loaded for Site Inspector');
+        
+        // Add some performance timing
+        window.addEventListener('load', function() {
+            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            console.log('Page load time:', loadTime + 'ms');
+        });
+    </script>
+</body>
+</html>

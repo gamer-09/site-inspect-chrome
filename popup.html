@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Site Inspector</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-profile">
+        <img src="profile/vc.png" alt="Profile" class="profile-pic">
+        <h1>Site Inspector</h1>
+      </div>
+      <div class="header-actions">
+        <button id="refresh" class="refresh-button" title="Refresh">
+          <span class="material-icons">refresh</span>
+        </button>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="label">URL:</span>
+        <div class="url-container">
+          <span id="url" class="url-text value" title="">Loading...</span>
+          <button id="toggle-url" class="toggle-url-btn" title="Toggle URL">↕</button>
+        </div>
+      </div>
+      <div class="info-item">
+        <span class="label">Title:</span>
+        <span id="title" class="value">Loading...</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" data-target="links-container">
+        <button class="toggle-btn" aria-label="Toggle links section">▼</button>
+        <h2>Links <span id="link-count" class="count">(0)</span></h2>
+      </div>
+      <div id="links-container" class="items-container">
+        <div class="empty-state">No links found</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" data-target="images-container">
+        <button class="toggle-btn" aria-label="Toggle images section">▼</button>
+        <h2>Images <span id="image-count" class="count">(0)</span></h2>
+      </div>
+      <div id="images-container" class="items-container">
+        <div class="empty-state">No images found</div>
+      </div>
+    </div>
+
+    <!-- Resources Section -->
+    <div class="section">
+      <div class="section-header" data-target="resources-container">
+        <button class="toggle-btn" aria-label="Toggle resources section">▼</button>
+        <h2>Resources <span id="resources-count" class="count">(0)</span></h2>
+      </div>
+      <div id="resources-container" class="items-container">
+        <div class="empty-state">No resources found</div>
+      </div>
+      <div id="view-all-resources" style="display: none; margin-top: 10px;">
+        <a id="view-resources-link" href="#" class="button" style="display: block; text-align: center; padding: 6px 0;">View All Resources</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" data-target="details-container">
+        <button class="toggle-btn" aria-label="Toggle details section">▼</button>
+        <h2>Page Details</h2>
+      </div>
+      <div id="details-container" class="items-container">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Load Time:</span>
+            <span id="load-time" class="value">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Scripts:</span>
+            <span id="scripts-count" class="value">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Stylesheets:</span>
+            <span id="stylesheets-count" class="value">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Security:</span>
+            <span id="security" class="value">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">DOM Nodes:</span>
+            <span id="dom-nodes" class="value">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Text Length:</span>
+            <span id="text-length" class="value">-</span>
+          </div>
+        </div>
+        <div id="meta-tags-container" class="meta-tags">
+          <h3>Meta Tags</h3>
+          <div id="meta-tags-list" class="meta-tags-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <div id="caption"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
